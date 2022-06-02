@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app .inner:not(#div) .highlight {
+            color: red;
+        }
+
+        #app .highlight:nth-of-type(1):nth-last-of-type(1) {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="outer" id="app">
+    <div class="inner">
+        <p class="highlight">测试文本</p>
+    </div>
+</div>
+</body>
+</html>
