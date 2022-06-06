@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openFilePicker()">打开文件</button>
+    <div id="app"></div>
+    <script>
+        function openFilePicker () {
+            window.showOpenFilePicker().then(res => {
+                res.forEach(fileHandle => {
+                    fileHandle.getFile().then(file => {
+                        const fileReader = new FileReader()
+                        console.log(fileReader)
+                        fileReader.onload = () => {
+                            document.querySelector('#app').innerText = fileReader.result
+                        }
+                        fileReader.readAsText(file,'utf-8')
+                    })
+                })
+            })
+        }
+    </script>
+</body>
+</html>
